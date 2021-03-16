@@ -1,7 +1,6 @@
-# @uniswap/merkle-distributor
+# @arr00/merkle-distributed-nft (forked from @uniswap/merkle-distributor)
 
-[![Tests](https://github.com/Uniswap/merkle-distributor/workflows/Tests/badge.svg)](https://github.com/Uniswap/merkle-distributor/actions?query=workflow%3ATests)
-[![Lint](https://github.com/Uniswap/merkle-distributor/workflows/Lint/badge.svg)](https://github.com/Uniswap/merkle-distributor/actions?query=workflow%3ALint)
+# Please note, these contract changes have not been audited
 
 # Local Development
 
@@ -18,3 +17,10 @@ The following assumes the use of `node@>=10`.
 ## Run Tests
 
 `yarn test`
+
+## Usage
+
+`MerkleDistributedNFT` has a claim virtual function which is similar to the merkle distributor function. Users eligable for the NFT drop should be designated a 1 value when generating the merkle tree. It is not possible to distribute more than 1 NFT to each address using this code. The NFTs are distributed starting at ID 1 and incrementing for each claim.
+
+### Customization
+Contracts can implement the `MerkleDistributedNFT` and override the claim function to add more claiming eligibility criteria (view `CompoundNFTv0` for an example of this usage).
