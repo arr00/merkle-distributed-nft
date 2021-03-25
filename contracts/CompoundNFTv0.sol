@@ -13,7 +13,8 @@ contract CompoundNFTv0 is MerkleDistributedNFT {
 
 	function claim(uint256 index, address account, uint256 amount, bytes32[] calldata merkleProof) external override {
 		require(active, "CompoundNFTv0::claim: not yet active");
-		require(block.timestamp < activationTime + 2 days, "CompoundNFTv0::claim: claiming period is over");
+		require(block.timestamp < activationTime + 3 days, "CompoundNFTv0::claim: claiming period is over");
+		require(msg.sender == account, "CompoundNFTv0::claim: only recipient can claim");
 
 		// Pass checks, allow claim
 		_claim(index, account, amount, merkleProof);
