@@ -28,4 +28,8 @@ contract CompoundNFTv0 is MerkleDistributedNFT {
 		active = true;
 		activationTime = block.timestamp;
 	}
+
+	function tokenURI(uint256) public view override returns (string memory) {
+        return "ipfs://QmYoaQSKLvRcKyRtyWT73N8c5xTt9P1Brjbn47q2puLAjt";
+    }
 }
